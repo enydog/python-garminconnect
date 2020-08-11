@@ -275,6 +275,15 @@ class Garmin(object):
         self.logger.debug(f"Fetching exercise sets for activity_id {activity_id}")
 
         return self.fetch_data(exercisesetsurl)
+    
+    def get_activity_detail(self, activity_id):
+        activity_id = str(activity_id)
+        #"https://connect.garmin.com/modern/proxy/activity-service/activity/{}".format(activity_id))        
+        #'https://connect.garmin.com/modern/proxy/activity-service/activity/'
+        exercisesetsurl = f"{self.url_exercise_sets}{activity_id}"
+        self.logger.debug(f"Fetching exercise sets for activity_id {activity_id}")
+
+        return self.fetch_data(exercisesetsurl)    
 
     class ActivityDownloadFormat(Enum):
         ORIGINAL = auto()
